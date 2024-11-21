@@ -75,7 +75,7 @@
             .then(response => {
                 const userData = response.data;
                 const userName = userData.result.first_name;
-            // Отобразите имя пользователя на странице
+            
             document.getElementById('user-name').innerHTML = userName;
             })
             .catch(error => {
