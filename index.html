@@ -9,19 +9,19 @@
 <body>
     <div class="profile-container">
         <div class="profile-header">
-            <img src="/image/student_avatar.png" alt="Profile picture" class="profile-pic">
-            <h1 class="username">Demo User</h1>
+            <img src="image/student_avatar.png" alt="Profile picture" class="profile-pic">
+            <h1 class="username" id="user-name">Demo User</h1>
             <div class="level">lvl 1 ⭐</div>
             <div class="account-status">ACCOUNT STATUS FREE</div>
         </div>
 
         <div class="stats-card">
             <div class="stats-item">💬 Talk Time:</div>
-            <div class="stats-item">- Today: 1.0 min.</div>
-            <div class="stats-item">- Weekly: 1.1 min.</div>
-            <div class="stats-item">- Total: 0.8 min.</div>
-            <div class="stats-item">🎯 Listened Time: 2 min. of English speech</div>
-            <div class="stats-item">⏰ Total Days Engaged: 1 days</div>
+            <div class="stats-item">- Today: 0.0 min.</div>
+            <div class="stats-item">- Weekly: 0.0 min.</div>
+            <div class="stats-item">- Total: 0.0 min.</div>
+            <div class="stats-item">🎯 Listened Time: 0 min. of English speech</div>
+            <div class="stats-item">⏰ Total Days Engaged: 0 days</div>
         </div>
 
         <div class="gift-section">
@@ -64,9 +64,23 @@
                     <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
                     </svg>
                 </a>
-                
             </div>
         </nav>
     </div>
+
+    <script>
+        const axios = require('axios');
+
+        axios.get('https://api.telegram.org/bot<7286164590:AAGk7UzUGvkG-Zo4r_sJMzzNLOBEbS445JA>/getMe')
+            .then(response => {
+                const userData = response.data;
+                const userName = userData.result.first_name;
+            // Отобразите имя пользователя на странице
+            document.getElementById('user-name').innerHTML = userName;
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
 </body>
 </html>
